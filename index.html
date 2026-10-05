@@ -1,19 +1,16 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>前后端分离计算器</title>
+  <title>Calculator</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="page">
     <section class="panel calculator-panel">
       <header class="panel-header">
-        <div>
-          <h1>计算器</h1>
-          <p class="subtitle">前后端分离 · 计算由后端完成</p>
-        </div>
+        <h1>Calculator</h1>
       </header>
 
       <div class="display">
@@ -22,43 +19,40 @@
       </div>
 
       <div class="buttons" id="buttons">
-        <button class="btn function" data-action="clear" title="清空">C</button>
-        <button class="btn function" data-action="append" data-value="(" title="左括号">(</button>
-        <button class="btn function" data-action="append" data-value=")" title="右括号">)</button>
-        <button class="btn operator" data-action="append" data-value="/" title="除">÷</button>
+        <button class="btn function" data-action="clear" title="Clear">C</button>
+        <button class="btn function" data-action="append" data-value="(" title="Left parenthesis">(</button>
+        <button class="btn function" data-action="append" data-value=")" title="Right parenthesis">)</button>
+        <button class="btn operator" data-action="append" data-value="/" title="Divide">÷</button>
 
         <button class="btn" data-action="append" data-value="7">7</button>
         <button class="btn" data-action="append" data-value="8">8</button>
         <button class="btn" data-action="append" data-value="9">9</button>
-        <button class="btn operator" data-action="append" data-value="*" title="乘">×</button>
+        <button class="btn operator" data-action="append" data-value="*" title="Multiply">×</button>
 
         <button class="btn" data-action="append" data-value="4">4</button>
         <button class="btn" data-action="append" data-value="5">5</button>
         <button class="btn" data-action="append" data-value="6">6</button>
-        <button class="btn operator" data-action="append" data-value="-" title="减">−</button>
+        <button class="btn operator" data-action="append" data-value="-" title="Subtract">−</button>
 
         <button class="btn" data-action="append" data-value="1">1</button>
         <button class="btn" data-action="append" data-value="2">2</button>
         <button class="btn" data-action="append" data-value="3">3</button>
-        <button class="btn operator" data-action="append" data-value="+" title="加">+</button>
+        <button class="btn operator" data-action="append" data-value="+" title="Add">+</button>
 
         <button class="btn zero" data-action="append" data-value="0">0</button>
         <button class="btn" data-action="append" data-value=".">.</button>
-        <button class="btn function" data-action="backspace" title="退格">⌫</button>
-        <button class="btn equals" data-action="equals" title="等于">=</button>
+        <button class="btn function" data-action="backspace" title="Backspace">⌫</button>
+        <button class="btn equals" data-action="equals" title="Equals">=</button>
       </div>
     </section>
 
     <section class="panel history-panel">
       <header class="panel-header">
-        <div>
-          <h1>计算历史</h1>
-          <p class="subtitle">保存在后端数据库，刷新也不会丢失</p>
-        </div>
-        <button id="clear-history" class="clear-btn">清空全部</button>
+        <h1>Calculation History</h1>
+        <button id="clear-history" class="clear-btn">Clear All</button>
       </header>
       <ul id="history-list" class="history-list">
-        <li class="empty">加载中…</li>
+        <li class="empty">Loading…</li>
       </ul>
     </section>
   </main>

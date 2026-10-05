@@ -1,5 +1,5 @@
 // 后端的地址。如果你把后端部署到了公网，就把这里改成公网地址。
-const API_BASE = "http://127.0.0.1:5000";
+const API_BASE = "https://calculator-backend-ocpm.onrender.com";
 
 const expressionEl = document.getElementById("expression");
 const resultEl = document.getElementById("result");
@@ -38,7 +38,7 @@ async function calculate() {
   if (!expression) {
     return;
   }
-  resultEl.textContent = "计算中…";
+  resultEl.textContent = "Calculating…";
   try {
     const response = await fetch(API_BASE + "/api/calculate", {
       method: "POST",
@@ -52,10 +52,10 @@ async function calculate() {
       renderExpression();
       loadHistory();
     } else {
-      resultEl.textContent = data.message || "计算出错";
+      resultEl.textContent = data.message || "Error";
     }
   } catch (error) {
-    resultEl.textContent = "无法连接后端服务";
+    resultEl.textContent = "Cannot connect to the backend";
   }
 }
 
@@ -101,17 +101,17 @@ async function loadHistory() {
 
         const del = document.createElement("button");
         del.className = "history-delete";
-        del.textContent = "删除";
+        del.textContent = "Delete";
         del.addEventListener("click", () => deleteRecord(item.id));
 
         li.append(expr, result, time, del);
         historyListEl.appendChild(li);
       });
     } else {
-      historyListEl.innerHTML = '<li class="empty">暂无计算记录</li>';
+      historyListEl.innerHTML = '<li class="empty">No history yet</li>';
     }
   } catch (error) {
-    historyListEl.innerHTML = '<li class="empty">无法加载历史记录</li>';
+    historyListEl.innerHTML = '<li class="empty">Failed to load history</li>';
   }
 }
 
@@ -120,19 +120,19 @@ async function deleteRecord(id) {
     await fetch(API_BASE + "/api/history/" + id, { method: "DELETE" });
     loadHistory();
   } catch (error) {
-    alert("删除失败，请检查后端是否启动");
+    alert("Delete failed. Check if the backend is running.");
   }
 }
 
 async function clearAllHistory() {
-  if (!confirm("确定要清空全部计算历史吗？")) {
+  if (!confirm("Clear all calculation history?")) {
     return;
   }
   try {
     await fetch(API_BASE + "/api/history", { method: "DELETE" });
     loadHistory();
   } catch (error) {
-    alert("清空失败，请检查后端是否启动");
+    alert("Clear failed. Check if the backend is running.");
   }
 }
 
