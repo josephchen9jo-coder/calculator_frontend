@@ -1,4 +1,3 @@
-// 后端的地址。如果你把后端部署到了公网，就把这里改成公网地址。
 const API_BASE = "https://calculator-backend-ocpm.onrender.com";
 
 const expressionEl = document.getElementById("expression");
