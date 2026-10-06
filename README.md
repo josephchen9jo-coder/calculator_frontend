@@ -9,7 +9,7 @@ This is the front-end page for the front-end and back-end separated calculator. 
 - Displays calculation results and error messages returned by the back end.
 - Displays calculation history read from the back-end database and supports deleting records.
 
-## Tech Stack
+## Technology Stack
 
 - HTML
 - CSS
