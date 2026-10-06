@@ -7,6 +7,10 @@ const historyListEl = document.getElementById("history-list");
 const clearHistoryBtn = document.getElementById("clear-history");
 
 let expression = "";
+let lastResult = null;
+let justCalculated = false;
+
+const OPERATORS = ["+", "-", "*", "/"];
 
 // 把内部的 * 和 / 显示成更好看的 × 和 ÷
 function displayExpression(text) {
@@ -17,24 +21,45 @@ function renderExpression() {
   expressionEl.textContent = expression ? displayExpression(expression) : "0";
 }
 
+function resetResult() {
+  resultEl.textContent = "0";
+}
+
 function append(value) {
-  expression += value;
+  // 刚算完时：按运算符就用结果接着算，按数字就重新开始
+  if (justCalculated) {
+    if (OPERATORS.includes(value)) {
+      expression = String(lastResult) + value;
+    } else {
+      expression = value;
+    }
+    justCalculated = false;
+    resetResult();
+  } else {
+    expression += value;
+  }
   renderExpression();
 }
 
 function backspace() {
+  if (justCalculated) {
+    clearExpression();
+    return;
+  }
   expression = expression.slice(0, -1);
   renderExpression();
 }
 
 function clearExpression() {
   expression = "";
-  resultEl.textContent = "0";
+  lastResult = null;
+  justCalculated = false;
+  resetResult();
   renderExpression();
 }
 
 async function calculate() {
-  if (!expression) {
+  if (!expression || justCalculated) {
     return;
   }
   resultEl.textContent = "Calculating…";
@@ -46,8 +71,10 @@ async function calculate() {
     });
     const data = await response.json();
     if (data.success) {
+      lastResult = data.result;
+      justCalculated = true;
       resultEl.textContent = "= " + data.result;
-      expression = "";
+      // 保留原表达式，不清空
       renderExpression();
       loadHistory();
     } else {
