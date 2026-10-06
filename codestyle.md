@@ -1,19 +1,19 @@
-# 代码规范（Code Style）
+# Code Style
 
-## 规范来源
+## Source
 
-本项目的前端 JavaScript 代码主要参考以下业界广泛认可的规范：
+The front-end JavaScript code in this project mainly follows these widely recognized style guides:
 
-- Google JavaScript Style Guide：https://google.github.io/styleguide/jsguide.html
-- Airbnb JavaScript Style Guide：https://github.com/airbnb/javascript
+- Google JavaScript Style Guide: https://google.github.io/styleguide/jsguide.html
+- Airbnb JavaScript Style Guide: https://github.com/airbnb/javascript
 
-HTML 与 CSS 保持结构清晰、命名语义化，并使用 BEM 思路组织类名。
+HTML and CSS keep the structure clear and names semantic, using BEM-style class names.
 
-## 本项目约定
+## Project Conventions
 
-- 使用 2 个空格缩进。
-- 变量名、函数名使用小驼峰命名（camelCase），例如 `loadHistory`。
-- 常量使用全大写加下划线，例如 `API_BASE`。
-- 每个函数尽量只做一件事，保持职责清晰。
-- CSS 类名使用小写加连字符，例如 `history-item`。
-- 在关键逻辑处添加简短的中文注释。
+- Use 2 spaces for indentation.
+- Variable and function names use camelCase, e.g. `loadHistory`.
+- Constants use UPPER_SNAKE_CASE, e.g. `API_BASE`.
+- Each function should do one thing and keep responsibilities clear.
+- CSS class names use lowercase with hyphens, e.g. `history-item`.
+- Add short comments for complex logic.

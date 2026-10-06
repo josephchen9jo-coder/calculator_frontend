@@ -1,43 +1,43 @@
-# 计算器前端（Calculator Frontend）
+# Calculator Frontend
 
-这是「前后端分离计算器」的前端页面，负责用户交互和信息展示。
+This is the front-end page for the front-end and back-end separated calculator. It handles user interaction and information display.
 
-## 项目介绍
+## Overview
 
-- 提供计算器按钮和表达式输入。
-- 通过 HTTP/JSON 接口调用后端完成计算。
-- 展示计算结果和后端返回的错误信息。
-- 展示从后端数据库读取的计算历史，并支持删除记录。
+- Provides calculator buttons and expression input.
+- Calls the back end through HTTP/JSON APIs to perform calculations.
+- Displays calculation results and error messages returned by the back end.
+- Displays calculation history read from the back-end database and supports deleting records.
 
-## 技术栈
+## Tech Stack
 
 - HTML
 - CSS
-- 原生 JavaScript（Fetch API）
+- Vanilla JavaScript (Fetch API)
 
-## 运行环境
+## Runtime Environment
 
-任意现代浏览器（Chrome、Edge 等）。
+Any modern browser (Chrome, Edge, etc.).
 
-## 安装方法
+## Installation
 
-无需安装，前端为纯静态文件。
+No installation required; the front end is pure static files.
 
-## 启动方法
+## Running
 
-1. 先启动后端（见后端 README）。
-2. 双击打开 `index.html`，或在命令行用任意静态服务器托管该目录。
+1. Make sure the back end is running first (see the back-end README).
+2. Open `index.html` in a browser, or serve this directory with any static server.
 
-## 配置说明
+## Configuration
 
-- 后端地址在 `app.js` 顶部的 `API_BASE` 中配置，默认 `http://127.0.0.1:5000`。
-- 部署到公网后，请把 `API_BASE` 改为公网后端地址。
+- The back-end address is configured in the `API_BASE` constant at the top of `app.js`.
+- Update `API_BASE` to the deployed back-end URL after deployment.
 
-## 前后端连接方式
+## Front-end/Back-end Connection
 
-前端通过 `fetch` 调用后端的 HTTP 接口：
+The front end calls the back-end HTTP APIs through `fetch`:
 
-- 计算：`POST /api/calculate`
-- 查询历史：`GET /api/history`
-- 删除历史：`DELETE /api/history/{id}`
-- 清空历史：`DELETE /api/history`
+- Calculate: `POST /api/calculate`
+- Query history: `GET /api/history`
+- Delete history: `DELETE /api/history/{id}`
+- Clear history: `DELETE /api/history`

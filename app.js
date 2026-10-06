@@ -12,7 +12,7 @@ let justCalculated = false;
 
 const OPERATORS = ["+", "-", "*", "/"];
 
-// 把内部的 * 和 / 显示成更好看的 × 和 ÷
+// Show internal * and / as the nicer-looking × and ÷
 function displayExpression(text) {
   return text.replace(/\*/g, "×").replace(/\//g, "÷");
 }
@@ -26,7 +26,7 @@ function resetResult() {
 }
 
 function append(value) {
-  // 刚算完时：按运算符就用结果接着算，按数字就重新开始
+  // Just after a calculation: an operator continues from the result, a digit starts over
   if (justCalculated) {
     if (OPERATORS.includes(value)) {
       expression = String(lastResult) + value;
@@ -74,7 +74,7 @@ async function calculate() {
       lastResult = data.result;
       justCalculated = true;
       resultEl.textContent = "= " + data.result;
-      // 保留原表达式，不清空
+      // Keep the original expression instead of clearing it
       renderExpression();
       loadHistory();
     } else {
